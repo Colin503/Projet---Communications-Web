@@ -1,0 +1,88 @@
+<!-- Structure principale du site -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Métadonnées et liens vers les ressources externes -->
+    <meta charset="utf-8">
+    <meta name="author" content="Thibault Napoléon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Titre de la page -->
+    <title>PHOTO gallery</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/photos.js"></script> <!-- Gestion des photos -->
+    <script src="js/loading.js"></script> <!-- Affichage des photos -->
+    <script src="js/comments.js" defer></script> <!-- Gestion des commentaires -->
+    <script src="js/chat.js" defer></script> <!-- Système de chat -->
+  </head>
+  
+  <body>
+    <!-- En-tête -->
+    <header class="container">
+      <h1>PHOTO gallery</h1>
+      <hr>
+    </header>
+    
+    <!-- Section pour afficher les erreurs -->
+    <section id="errors" class="container alert alter-danger" role="alert">
+        <span id="errorMessage"></span>
+    </section>
+    
+    <!-- Contenu principal -->
+    <div class="container">
+        <div class="row">
+            <!-- Colonne principale (8/12) -->
+            <div class="col-md-8">
+                <!-- Miniatures des photos -->
+                <section id="thumbnails" class="row"></section>
+                
+                <!-- Photo sélectionnée -->
+                <section id="photo"></section>
+                
+                <!-- Commentaires existants -->
+                <section id="comments"></section>
+                
+                <!-- Formulaire d'ajout de commentaire -->
+                <section id="comments-add">
+                  <form id="add">
+                    <!-- Champ de saisie -->
+                    <input type="text" class="form-control" id="comment" placeholder="Entrez votre commentaire" required>
+                    <!-- Bouton d'envoi -->
+                    <button type="submit" class="btn btn-success float-end">
+                      <i class="fa fa-paper-plane"></i> Envoyer
+                    </button>
+                  </form>
+                </section>
+            </div>
+            
+            <!-- Colonne latérale (4/12) - Chat -->
+            <div class="col-md-4">
+                <section class="container">
+                  <div class="card">
+                      <div class="card-header">
+                          <h4>Chat</h4>
+                      </div>        
+                  <div class="card-body">
+                      <form id="chat-send">
+                          <!-- Zone de discussion -->
+                          <textarea id="chat-room" rows="10" class="form-control" disabled readonly></textarea>
+                          <!-- Champ de saisie de message -->
+                          <input type="text" class="form-control" id="chat-message" placeholder="Entrez votre message" required>
+                          <!-- Bouton d'envoi -->
+                          <button type="submit" class="btn btn-success float-end">
+                          <i class="fa fa-paper-plane"></i> Envoyer
+                          </button>
+                      </form>
+                  </div>
+                </section>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
